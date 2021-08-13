@@ -32,7 +32,7 @@
         android:id="@+id/diceSizeRG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subTitleTV">
@@ -41,8 +41,8 @@
             android:id="@+id/d4RadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subTitleTV" />
@@ -51,7 +51,8 @@
             android:id="@+id/d6RadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D6"
             app:layout_constraintBottom_toBottomOf="@+id/d4RadioBtn"
             app:layout_constraintStart_toEndOf="@+id/d4RadioBtn"
@@ -61,7 +62,8 @@
             android:id="@+id/d8RadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D8"
             app:layout_constraintBottom_toBottomOf="@+id/d6RadioBtn"
             app:layout_constraintStart_toEndOf="@+id/d6RadioBtn"
@@ -72,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D10"
             app:layout_constraintEnd_toEndOf="@+id/d4RadioBtn"
             app:layout_constraintStart_toStartOf="@+id/d4RadioBtn"
@@ -82,7 +84,8 @@
             android:id="@+id/d12RadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D12"
             app:layout_constraintBottom_toBottomOf="@+id/d10RadioBtn"
             app:layout_constraintStart_toEndOf="@+id/d10RadioBtn"
@@ -92,7 +95,8 @@
             android:id="@+id/d20RadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Dice D20"
             app:layout_constraintBottom_toBottomOf="@+id/d12RadioBtn"
             app:layout_constraintStart_toEndOf="@+id/d12RadioBtn"
@@ -100,13 +104,23 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/rollBtn"
+        android:id="@+id/rollBtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Roll It"
+        android:text="Roll It Once"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/rollBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Roll It Twice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
