@@ -7,12 +7,106 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="DiceRoller"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Select your dice size and roll the dice:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+
+    <RadioGroup
+        android:id="@+id/diceSizeRG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleTV">
+
+        <RadioButton
+            android:id="@+id/d4RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:text="Dice D4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subTitleTV" />
+
+        <RadioButton
+            android:id="@+id/d6RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Dice D6"
+            app:layout_constraintBottom_toBottomOf="@+id/d4RadioBtn"
+            app:layout_constraintStart_toEndOf="@+id/d4RadioBtn"
+            app:layout_constraintTop_toTopOf="@+id/d4RadioBtn" />
+
+        <RadioButton
+            android:id="@+id/d8RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Dice D8"
+            app:layout_constraintBottom_toBottomOf="@+id/d6RadioBtn"
+            app:layout_constraintStart_toEndOf="@+id/d6RadioBtn"
+            app:layout_constraintTop_toTopOf="@+id/d6RadioBtn" />
+
+        <RadioButton
+            android:id="@+id/d10RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="32dp"
+            android:text="Dice D10"
+            app:layout_constraintEnd_toEndOf="@+id/d4RadioBtn"
+            app:layout_constraintStart_toStartOf="@+id/d4RadioBtn"
+            app:layout_constraintTop_toBottomOf="@+id/d4RadioBtn" />
+
+        <RadioButton
+            android:id="@+id/d12RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:text="Dice D12"
+            app:layout_constraintBottom_toBottomOf="@+id/d10RadioBtn"
+            app:layout_constraintStart_toEndOf="@+id/d10RadioBtn"
+            app:layout_constraintTop_toTopOf="@+id/d10RadioBtn" />
+
+        <RadioButton
+            android:id="@+id/d20RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:text="Dice D20"
+            app:layout_constraintBottom_toBottomOf="@+id/d12RadioBtn"
+            app:layout_constraintStart_toEndOf="@+id/d12RadioBtn"
+            app:layout_constraintTop_toTopOf="@+id/d12RadioBtn" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/rollBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Roll It"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
