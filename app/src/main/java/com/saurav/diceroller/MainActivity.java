@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -16,12 +17,13 @@ public class MainActivity extends AppCompatActivity
 
     private byte result;
     private byte result2;
+    TextView customSidesET;
+    private int customSides;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RadioGroup diceSizeRG = findViewById(R.id.diceSizeRG);
 //        diceSizeRG.check(R.id.d4RadioBtn);
 //        RadioButton d4RadioBtn = findViewById(R.id.d4RadioBtn);
 //        RadioButton d6RadioBtn = findViewById(R.id.d6RadioBtn);
@@ -34,6 +36,10 @@ public class MainActivity extends AppCompatActivity
 
         Button rollBtn2 = findViewById(R.id.rollBtn2);
         rollBtn2.setOnClickListener(this);
+
+        customSidesET = findViewById(R.id.customSidesET);
+
+        RadioGroup diceSizeRG = findViewById(R.id.diceSizeRG);
         try{
 //            setting onCheckedChange listener to the radio group
             diceSizeRG.setOnCheckedChangeListener(this);
@@ -91,30 +97,64 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View view){
         switch(view.getId()){
             case R.id.rollBtn1:
-                AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog1.setTitle("Roll Result Once");
-                alertDialog1.setMessage("The result of the dice roll is: \n" + result);
-                alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alertDialog1.show();
-//                Toast.makeText(this, "die roll result is " + result, Toast.LENGTH_SHORT).show();
+                if(customSidesET.getText().toString().isEmpty()){
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog1.setTitle("Roll Result Once");
+                    alertDialog1.setMessage("The result of the dice roll is: \n" + result);
+                    alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialog1.show();
+                }else{
+                    customSides = Integer.parseInt(customSidesET.getText().toString());
+                    Die die = new Die ((byte) customSides);
+                    result = die.roll();
+//                    result2 = die.roll();
+
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog1.setTitle("Roll Result Once");
+                    alertDialog1.setMessage("The result of the dice roll is: \n" + result);
+                    alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialog1.show();
+                }
                 break;
             case R.id.rollBtn2:
-                AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog2.setTitle("Roll Result Twice");
-                alertDialog2.setMessage("The results of two consecutive dice rolls are: \n" + result + " & " + result2);
-                alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alertDialog2.show();
-//                Toast.makeText(this, "die roll result is " + result, Toast.LENGTH_SHORT).show();
+                if(customSidesET.getText().toString().isEmpty()){
+                    AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog2.setTitle("Roll Result Twice");
+                    alertDialog2.setMessage("The results of two consecutive dice rolls are: \n" + result + " & " + result2);
+                    alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialog2.show();
+                }else{
+                    customSides = Integer.parseInt(customSidesET.getText().toString());
+                    Die die = new Die ((byte) customSides);
+                    result = die.roll();
+                    result2 = die.roll();
+
+                    AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog2.setTitle("Roll Result Twice");
+                    alertDialog2.setMessage("The results of two consecutive dice rolls are: \n" + result + " & " + result2);
+                    alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back to Home", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialog2.show();
+                }
                 break;
             default:
                 Toast.makeText(this, "View not Implemented", Toast.LENGTH_SHORT).show();
