@@ -116,7 +116,7 @@
             android:id="@+id/rollBtn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginBottom="32dp"
             android:text="Roll It Once"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -126,7 +126,7 @@
             android:id="@+id/rollBtn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
             android:text="Roll It Twice"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -155,6 +155,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diceSizeRG" />
+
+        <Button
+            android:id="@+id/savedDiceRollsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="History"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rollBtn2"
+            app:layout_constraintStart_toEndOf="@+id/rollBtn1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
